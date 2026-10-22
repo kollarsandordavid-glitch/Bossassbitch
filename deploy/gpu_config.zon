@@ -1,0 +1,17 @@
+.{
+    .schema_version = 1,
+    .provider = "modal.com",
+    .app_name = "neural-search-b300-fleet",
+    .production_gpu_model = "B300",
+    .production_gpu_count_per_container = 8,
+    .max_concurrent_containers = 16,
+    .curriculum_reference_gpu_model = "H200",
+    .curriculum_reference_gpu_count = 144,
+    .embedding_primary_dim = 4096,
+    .embedding_matryoshka_dim = 256,
+    .reranker_fp8_enabled = true,
+    .flash_attention_2_enabled = true,
+    .checkpoint_volume_name = "neural-search-checkpoints-vol",
+    .workload_socket_path = "./var/lib/neural_search/modal_bridge.sock",
+    .modal_http_bridge_url = "http://127.0.0.1:9480",
+}

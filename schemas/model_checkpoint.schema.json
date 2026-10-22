@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/model_checkpoint.schema.json",
+  "title": "ModelCheckpointManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "model_family",
+    "model_version",
+    "curriculum_stage",
+    "global_step",
+    "primary_dim",
+    "matryoshka_dim",
+    "learned_temperature",
+    "weights_sha256",
+    "optimizer_sha256",
+    "created_at_ms",
+    "gpu_profile"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "model_family": { "type": "string" },
+    "model_version": { "type": "integer", "minimum": 1 },
+    "curriculum_stage": { "type": "integer", "minimum": 1, "maximum": 8 },
+    "global_step": { "type": "integer", "minimum": 0 },
+    "primary_dim": { "type": "integer", "const": 4096 },
+    "matryoshka_dim": { "type": "integer", "const": 256 },
+    "learned_temperature": { "type": "number", "exclusiveMinimum": 0 },
+    "weights_sha256": { "type": "string", "minLength": 64, "maxLength": 64 },
+    "optimizer_sha256": { "type": "string", "minLength": 64, "maxLength": 64 },
+    "created_at_ms": { "type": "integer", "minimum": 0 },
+    "gpu_profile": { "type": "string" }
+  },
+  "additionalProperties": false
+}

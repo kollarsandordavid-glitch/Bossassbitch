@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/query.schema.json",
+  "title": "SearchQueryRequest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "query_text",
+    "top_k",
+    "ranking_mode",
+    "deadline_ms"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "query_text": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "top_k": { "type": "integer", "minimum": 1, "maximum": 1000 },
+    "candidate_pool_k": { "type": "integer", "enum": [500, 5000] },
+    "ranking_mode": {
+      "type": "string",
+      "enum": ["hybrid", "dense", "sparse", "code", "executive", "research_publications", "structured"]
+    },
+    "deadline_ms": { "type": "integer", "minimum": 5, "maximum": 180000 },
+    "include_highlights": { "type": "boolean" },
+    "verify_claims": { "type": "boolean" },
+    "extract_entities": { "type": "boolean" },
+    "filters": {
+      "type": "object",
+      "properties": {
+        "min_published_at_ms": { "type": "integer", "minimum": 0 },
+        "max_published_at_ms": { "type": "integer", "minimum": 0 },
+        "domains": { "type": "array", "items": { "type": "string" } },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "min_quality_permille": { "type": "integer", "minimum": 0, "maximum": 1000 },
+        "document_types": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

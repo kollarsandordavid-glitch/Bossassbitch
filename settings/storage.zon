@@ -1,0 +1,14 @@
+.{
+    .schema_version = 1,
+    .document_store_path = "./var/lib/neural_search/documents",
+    .metadata_store_path = "./var/lib/neural_search/metadata",
+    .graph_store_path = "./var/lib/neural_search/graph",
+    .checkpoint_store_path = "./var/lib/neural_search/checkpoints",
+    .transaction_log_path = "./var/lib/neural_search/txlog",
+    .sparse_index_path = "./var/lib/neural_search/sparse_index",
+    .research_state_path = "./var/lib/neural_search/research_state",
+    .entity_eval_path = "./var/lib/neural_search/entity_eval",
+    .sync_on_commit = true,
+    .max_log_segment_bytes = 134217728,
+    .compaction_interval_sec = 1800,
+}

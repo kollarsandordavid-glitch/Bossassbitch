@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/crawler_event.schema.json",
+  "title": "CrawlerFrontierEvent",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sequence_id",
+    "partition_id",
+    "canonical_url",
+    "discovery_url",
+    "domain_id",
+    "fetch_state",
+    "http_status",
+    "discovered_at_ms",
+    "fetched_at_ms",
+    "next_fetch_at_ms",
+    "content_fingerprint",
+    "priority"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "sequence_id": { "type": "integer", "minimum": 0 },
+    "partition_id": { "type": "integer", "minimum": 0 },
+    "canonical_url": { "type": "string" },
+    "discovery_url": { "type": "string" },
+    "domain_id": { "type": "integer", "minimum": 0 },
+    "fetch_state": {
+      "type": "string",
+      "enum": ["discovered", "scheduled", "leased", "completed", "retry_wait", "redirected", "denied", "expired"]
+    },
+    "http_status": { "type": "integer", "minimum": 0, "maximum": 999 },
+    "discovered_at_ms": { "type": "integer", "minimum": 0 },
+    "fetched_at_ms": { "type": "integer", "minimum": 0 },
+    "next_fetch_at_ms": { "type": "integer", "minimum": 0 },
+    "content_fingerprint": { "type": "integer", "minimum": 0 },
+    "redirect_target": { "type": "string" },
+    "retry_count": { "type": "integer", "minimum": 0 },
+    "priority": { "type": "integer", "minimum": 0, "maximum": 1000 }
+  },
+  "additionalProperties": false
+}

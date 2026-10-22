@@ -1,0 +1,16 @@
+.{
+    .schema_version = 1,
+    .storage_engine = "nvme_mmap_log_structured",
+    .root_directory = "./var/lib/neural_search",
+    .frontier_directory = "./var/lib/neural_search/frontier",
+    .wal_directory = "./var/lib/neural_search/wal",
+    .index_directory = "./var/lib/neural_search/vector_index",
+    .document_directory = "./var/lib/neural_search/documents",
+    .snapshot_directory = "./var/lib/neural_search/snapshots",
+    .checkpoint_directory = "./var/lib/neural_search/checkpoints",
+    .direct_io_enabled = false,
+    .mmap_populate_pages = true,
+    .block_alignment_bytes = 4096,
+    .cache_line_alignment_bytes = 64,
+    .min_free_disk_bytes = 1073741824,
+}

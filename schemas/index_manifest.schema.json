@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/index_manifest.schema.json",
+  "title": "VectorIndexManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "index_version",
+    "generation_id",
+    "commit_sequence",
+    "model_version",
+    "quantization_version",
+    "centroid_count",
+    "retained_dimensions",
+    "packed_bytes",
+    "total_documents",
+    "deleted_documents",
+    "shards"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "index_version": { "type": "integer", "minimum": 1 },
+    "generation_id": { "type": "integer", "minimum": 1 },
+    "commit_sequence": { "type": "integer", "minimum": 0 },
+    "model_version": { "type": "integer", "minimum": 1 },
+    "quantization_version": { "type": "integer", "minimum": 1 },
+    "centroid_count": { "type": "integer", "const": 100000 },
+    "retained_dimensions": { "type": "integer", "const": 256 },
+    "packed_bytes": { "type": "integer", "const": 32 },
+    "total_documents": { "type": "integer", "minimum": 0 },
+    "deleted_documents": { "type": "integer", "minimum": 0 },
+    "shards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["shard_id", "centroid_start", "centroid_end", "document_count", "checksum_crc32"],
+        "properties": {
+          "shard_id": { "type": "integer", "minimum": 0 },
+          "centroid_start": { "type": "integer", "minimum": 0 },
+          "centroid_end": { "type": "integer", "minimum": 0 },
+          "document_count": { "type": "integer", "minimum": 0 },
+          "checksum_crc32": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,18 @@
+.{
+    .schema_version = 1,
+    .stream_partitions = 32,
+    .wal_dir = "./var/lib/neural_search/ingestion_wal",
+    .segment_max_bytes = 268435456,
+    .max_in_memory_events = 65536,
+    .max_queue_bytes = 1073741824,
+    .backpressure_high_watermark_permille = 850,
+    .backpressure_low_watermark_permille = 600,
+    .batch_flush_interval_ms = 250,
+    .live_index_publish_interval_sec = 3600,
+    .priority_publish_interval_sec = 30,
+    .spam_probability_threshold_permille = 780,
+    .min_quality_score_permille = 260,
+    .min_text_bytes = 64,
+    .max_duplicate_ratio_permille = 820,
+    .anomaly_quarantine_threshold_permille = 900,
+}

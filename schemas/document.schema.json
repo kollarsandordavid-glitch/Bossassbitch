@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/document.schema.json",
+  "title": "CanonicalDocument",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "doc_id",
+    "canonical_url",
+    "original_url",
+    "domain_id",
+    "content_hash",
+    "simhash",
+    "title",
+    "body_text",
+    "language",
+    "fetched_at_ms",
+    "published_at_ms",
+    "quality_score_permille",
+    "spam_probability_permille",
+    "structural_spans",
+    "outbound_links"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "doc_id": { "type": "integer", "minimum": 1 },
+    "canonical_url": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "original_url": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "domain_id": { "type": "integer", "minimum": 0 },
+    "content_hash": { "type": "integer", "minimum": 0 },
+    "simhash": { "type": "integer", "minimum": 0 },
+    "title": { "type": "string", "maxLength": 1024 },
+    "description": { "type": "string", "maxLength": 4096 },
+    "body_text": { "type": "string" },
+    "language": { "type": "string", "minLength": 2, "maxLength": 16 },
+    "fetched_at_ms": { "type": "integer", "minimum": 0 },
+    "published_at_ms": { "type": "integer", "minimum": 0 },
+    "quality_score_permille": { "type": "integer", "minimum": 0, "maximum": 1000 },
+    "spam_probability_permille": { "type": "integer", "minimum": 0, "maximum": 1000 },
+    "structural_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["byte_offset", "byte_length", "dom_depth", "heading_level", "element_tag", "prominence_permille"],
+        "properties": {
+          "byte_offset": { "type": "integer", "minimum": 0 },
+          "byte_length": { "type": "integer", "minimum": 0 },
+          "dom_depth": { "type": "integer", "minimum": 0 },
+          "heading_level": { "type": "integer", "minimum": 0, "maximum": 6 },
+          "element_tag": { "type": "string" },
+          "prominence_permille": { "type": "integer", "minimum": 0, "maximum": 1000 }
+        }
+      }
+    },
+    "outbound_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target_url", "anchor_text", "rel_nofollow"],
+        "properties": {
+          "target_url": { "type": "string" },
+          "anchor_text": { "type": "string" },
+          "rel_nofollow": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

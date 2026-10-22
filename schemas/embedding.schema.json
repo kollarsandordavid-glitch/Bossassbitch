@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/embedding.schema.json",
+  "title": "EmbeddingRecord",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "doc_id",
+    "model_version",
+    "quantization_version",
+    "primary_dim",
+    "retained_dim",
+    "primary_vector",
+    "packed_binary_hex",
+    "original_l2_norm",
+    "centroid_id"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "doc_id": { "type": "integer", "minimum": 0 },
+    "model_version": { "type": "integer", "minimum": 1 },
+    "quantization_version": { "type": "integer", "minimum": 1 },
+    "primary_dim": { "type": "integer", "const": 4096 },
+    "retained_dim": { "type": "integer", "const": 256 },
+    "primary_vector": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 4096,
+      "maxItems": 4096
+    },
+    "packed_binary_hex": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64
+    },
+    "original_l2_norm": { "type": "number", "minimum": 0 },
+    "centroid_id": { "type": "integer", "minimum": 0, "maximum": 99999 }
+  },
+  "additionalProperties": false
+}

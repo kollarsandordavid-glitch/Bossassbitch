@@ -1,0 +1,12 @@
+.{
+    .schema_version = 1,
+    .metrics_retention_sec = 86400,
+    .trace_buffer_events = 65536,
+    .trace_sample_permille = 100,
+    .histogram_buckets = 64,
+    .anomaly_window_size = 512,
+    .zscore_threshold_milli = 3500,
+    .drift_alert_threshold_milli = 200,
+    .export_interval_ms = 5000,
+    .telemetry_log_path = "./var/lib/neural_search/telemetry",
+}

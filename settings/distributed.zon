@@ -1,0 +1,16 @@
+.{
+    .schema_version = 1,
+    .node_id = "node-primary-0001",
+    .bind_address = "0.0.0.0",
+    .rpc_port = 9410,
+    .replication_port = 9411,
+    .gossip_port = 9412,
+    .consistency_mode = "generation_quorum",
+    .write_quorum = 2,
+    .read_quorum = 1,
+    .rpc_timeout_ms = 45,
+    .replication_batch_records = 1024,
+    .heartbeat_interval_ms = 500,
+    .election_timeout_ms = 2500,
+    .seed_peers = "127.0.0.1:9410",
+}

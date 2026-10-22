@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/training_job.schema.json",
+  "title": "TrainingJobSpecification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "job_id",
+    "model_version",
+    "curriculum_stage",
+    "gpu_type",
+    "gpu_count",
+    "global_batch_size",
+    "micro_batch_size",
+    "learning_rate",
+    "max_steps",
+    "checkpoint_path"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "job_id": { "type": "string" },
+    "model_version": { "type": "integer", "minimum": 1 },
+    "curriculum_stage": { "type": "integer", "minimum": 1, "maximum": 8 },
+    "gpu_type": { "type": "string", "enum": ["B300", "H200"] },
+    "gpu_count": { "type": "integer", "minimum": 1 },
+    "global_batch_size": { "type": "integer", "minimum": 1 },
+    "micro_batch_size": { "type": "integer", "minimum": 1 },
+    "learning_rate": { "type": "number", "exclusiveMinimum": 0 },
+    "max_steps": { "type": "integer", "minimum": 1 },
+    "checkpoint_path": { "type": "string" }
+  },
+  "additionalProperties": false
+}

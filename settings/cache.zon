@@ -1,0 +1,11 @@
+.{
+    .schema_version = 1,
+    .query_embedding_cache_entries = 131072,
+    .query_embedding_ttl_sec = 7200,
+    .cluster_posting_cache_bytes = 4294967296,
+    .cluster_posting_ttl_sec = 3600,
+    .rendered_response_cache_entries = 65536,
+    .rendered_response_ttl_sec = 900,
+    .coalesce_inflight_requests = true,
+    .eviction_policy = "segmented_lru",
+}

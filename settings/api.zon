@@ -1,0 +1,11 @@
+.{
+    .schema_version = 1,
+    .bind_address = "0.0.0.0",
+    .port = 8080,
+    .max_connections = 8192,
+    .max_request_body_bytes = 8388608,
+    .header_timeout_ms = 3000,
+    .request_deadline_ms = 98,
+    .research_request_deadline_ms = 180000,
+    .keepalive_timeout_ms = 30000,
+}

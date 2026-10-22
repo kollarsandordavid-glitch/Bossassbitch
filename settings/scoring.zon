@@ -1,0 +1,17 @@
+.{
+    .schema_version = 1,
+    .quantization_version = 1,
+    .vector_bits = 256,
+    .packed_bytes = 32,
+    .subvector_bits = 8,
+    .subvector_count = 32,
+    .lookup_table_entries = 256,
+    .zero_threshold_nano = 0,
+    .enable_stochastic_dithering = false,
+    .dither_seed = 98765432101234567,
+    .dither_amplitude_milli = 5,
+    .norm_compensation_enabled = true,
+    .record_alignment_bytes = 64,
+    .scan_block_candidates = 256,
+    .cost_reduction_target_multiple = 10,
+}

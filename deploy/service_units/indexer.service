@@ -1,0 +1,19 @@
+[Unit]
+Description=Distributed Neural Search Engine Vector Index Writer and Shard Manager
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/user
+ExecStart=/home/user/zig-out/bin/index-writer --role=indexer --config-dir=/home/user/settings --deploy-dir=/home/user/deploy
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=always
+RestartSec=2
+TimeoutStopSec=20
+LimitNOFILE=1048576
+Environment=NEURAL_SEARCH_ROLE=indexer
+Environment=NEURAL_SEARCH_CONFIG_DIR=/home/user/settings
+
+[Install]
+WantedBy=multi-user.target

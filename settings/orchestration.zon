@@ -1,0 +1,18 @@
+.{
+    .schema_version = 1,
+    .primary_retrieval_budget_ms = 85,
+    .hard_search_deadline_ms = 98,
+    .sparse_branch_budget_ms = 35,
+    .dense_branch_budget_ms = 40,
+    .rerank_branch_budget_ms = 35,
+    .highlights_branch_budget_ms = 20,
+    .verification_branch_budget_ms = 25,
+    .enable_speculative_branches = true,
+    .speculative_threshold_ms = 18,
+    .interactive_queue_capacity = 4096,
+    .research_queue_capacity = 512,
+    .research_max_steps = 12,
+    .research_deadline_ms = 180000,
+    .gpu_batch_window_ms = 4,
+    .gpu_max_batch_size = 128,
+}

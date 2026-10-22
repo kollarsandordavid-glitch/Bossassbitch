@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neural-search.internal/schemas/telemetry_event.schema.json",
+  "title": "OperationalTelemetryEvent",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_id",
+    "timestamp_ms",
+    "node_id",
+    "subsystem",
+    "metric_name",
+    "value_milli",
+    "anomaly_detected",
+    "severity"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "event_id": { "type": "integer", "minimum": 0 },
+    "timestamp_ms": { "type": "integer", "minimum": 0 },
+    "node_id": { "type": "string" },
+    "subsystem": {
+      "type": "string",
+      "enum": ["crawler", "ingestion", "embedding", "training", "index", "retrieval", "reranker", "cache", "api"]
+    },
+    "metric_name": { "type": "string" },
+    "value_milli": { "type": "integer" },
+    "anomaly_detected": { "type": "boolean" },
+    "severity": { "type": "string", "enum": ["normal", "elevated", "critical"] }
+  },
+  "additionalProperties": false
+}

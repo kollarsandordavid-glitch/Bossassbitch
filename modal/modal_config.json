@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "app_name": "neural-search-b300-fleet",
+  "gpu_type": "B300",
+  "gpu_count_per_worker": 8,
+  "max_containers": 16,
+  "curriculum_reference_profile": {
+    "gpu_type": "H200",
+    "gpu_count": 144,
+    "global_batch_size": 16384
+  },
+  "volumes": {
+    "checkpoints": "/mnt/neural_search_checkpoints",
+    "artifacts": "/mnt/neural_search_artifacts"
+  },
+  "zig_binary_dir": "/opt/neural_search/bin",
+  "primary_embedding_dim": 4096,
+  "matryoshka_retained_dim": 256,
+  "packed_binary_bytes": 32,
+  "timeout_seconds": 3600
+}

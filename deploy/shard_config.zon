@@ -1,0 +1,11 @@
+.{
+    .schema_version = 1,
+    .total_shards = 32,
+    .total_centroids = 100000,
+    .centroids_per_shard = 3125,
+    .replication_factor = 3,
+    .max_hot_shard_qps = 5000,
+    .split_occupancy_threshold = 5000000,
+    .rebalance_max_concurrent_transfers = 2,
+    .shard_base_dir = "./var/lib/neural_search/shards",
+}

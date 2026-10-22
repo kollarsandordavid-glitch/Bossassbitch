@@ -1,0 +1,15 @@
+.{
+    .schema_version = 1,
+    .node_id = "node-primary-0001",
+    .rack_id = "rack-eu-central-01",
+    .availability_zone = "eu-central-1a",
+    .host_address = "127.0.0.1",
+    .http_port = 8080,
+    .rpc_port = 9410,
+    .replication_port = 9411,
+    .roles = "search,crawler,ingestion,indexer,training,embedding,research",
+    .cpu_sockets = 2,
+    .cores_per_socket = 32,
+    .numa_nodes = 2,
+    .nvme_mount_points = "./var/lib/neural_search/nvme0,./var/lib/neural_search/nvme1",
+}
